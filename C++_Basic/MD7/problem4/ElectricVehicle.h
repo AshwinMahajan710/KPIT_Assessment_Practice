@@ -30,7 +30,8 @@ class ElectricVehicle{
     void setMotor(ElectricMotor motor_);
 
     friend std::ostream& operator<<(std::ostream& out, const ElectricVehicle& other);
-    
+    float operator + (const ElectricVehicle& other);
 };
+
 
 #endif // ELECTRICVEHICLE_H

@@ -2,6 +2,7 @@
 #include"ElectricMotor.h"
 #include<string>
 #include"ElectricVehicle.h"
+#include<iostream>
 
 // constructor --> default
 ElectricVehicle::ElectricVehicle(): m_vehicleId(0), m_vehicleModel("unknown"), m_batteryCapacity(0.0), m_motor(){};
@@ -43,4 +44,11 @@ std::ostream& operator<<(std::ostream& out, const ElectricVehicle& other){
     out<<"Vehicle Model: "<<other.m_vehicleModel<<std::endl;
     out<<"Vehicle Battery Capacity: "<<other.m_batteryCapacity<<std::endl;
     out<<"Vehicle Motor: "<<other.m_motor<<std::endl;
+    return out;
 }
+
+// operator + overload to return sum of 2 battery capacities
+float ElectricVehicle::operator + (const ElectricVehicle& other){
+    return (this->m_batteryCapacity + other.m_batteryCapacity);
+}
+
