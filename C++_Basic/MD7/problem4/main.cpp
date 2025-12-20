@@ -1,9 +1,8 @@
+#include<iostream>
 #include<string>
 #include"ElectricMotor.h"
-#include<string>
 #include"ElectricVehicle.h"
 #include"Global.h"
-#include<iostream>
 #include<limits>
 
 int main(){
@@ -18,12 +17,11 @@ int main(){
 
     // Taking user input for each object 
     for(size_t i=0;i<size;i++){
-        std::string vehicleId_, vehicleModel_;
+        std::string vehicleId_ = "", vehicleModel_ = "";
         float batteryCapacity_, maxPower_, maxTorque_;
 
-        
         std::cout<<"Enter Vehicle Id for vehicle "<<i<<": ";
-        getline(std::cin,vehicleId_);
+        getline(std::cin, vehicleId_);
 
         std::cout<<"Enter Vehicle model for vehicle "<<i<<": ";
         getline(std::cin,vehicleModel_);
