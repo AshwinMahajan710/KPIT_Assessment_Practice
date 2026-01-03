@@ -10,16 +10,18 @@ from Vehicle_Types import VehicleType
 from Vehicle import Vehicle
 
 class VehicleRecords():
+
+    # static variable to maintain id:
+    vehicle_id = 0
+    
+    # a) create empy dictionary with vehicle_id and vehicle_object
     def __init__(self):
         self.vehicles: Dict[int, Vehicle] = {}
-        self.fuel_types: str = ['Gasoline', 'Diesel', 'Electric'] 
-        self.transmission_types: str = ['Automatic', 'Manual']
+        self.fuel_types: List = ['Gasoline', 'Diesel', 'Electric'] 
+        self.transmission_types: List = ['Automatic', 'Manual']
     
-# Functions in VehicleRecords
-# a) __init__(self)
-# Purpose: Initializes the vehicle records system.
-# Details: Creates an empty dictionary for vehicles and sets allowed fuel and transmission types.
-# b) add_vehicle(self, vehicle_type, make, model, year, fuel_type, transmission_type, mileage=0)
+    # b) adding new vehicle object
+    def add_vehicle(self, vehicle_type: VehicleType, make: str, model: str, fuel_type: str, transmission_type: str, mileage=0)
 # Purpose: Adds a new vehicle to the system.
 # Steps:
 # Validate vehicle_type is an instance of VehicleType.
