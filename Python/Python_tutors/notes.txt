@@ -1,0 +1,57 @@
+1. in class __repr__ method 
+    - return f"{self.__class__.__name__}({self.__dict__})" --> for print each obj along with class Name 
+    - return f"{self.__dict__}" --> for only attributs
+
+2. for "override" import it from 'from typing_extensions import override'
+
+3. @property --> for getter
+    @ <property_name>.setter --> for setter
+
+4. Dictionary methods in case I forgot
+   -  self.calibration_values.get("scale",1.0) --> if that key not found then return 1.0 using .get() function
+
+5. for slicing use ':' not ',' 
+
+
+
+---> Regex:
+    - # pattern = r"^[A-Z0-9]{17}$"  
+        -> '^' at start tells that the string should start from this 
+        -> '[A-Z0-9]' tells match any one of the character
+        -> '{17}' -> given pattern must repeat for 17 times
+        -> '$' tells match must strictly ends string
+
+    - can use start(), end() after finding to get start or stop index
+
+    - print("Lisence Plate no: ",match.group()) --> the group will give extracted string without using span directly
+
+    - r"[a-zA-Z0-9]+@[a-zA-Z]+\.[a-zA-Z]{2,}" --> email extraction
+        -> if more than one pattern is repeating strictly use '+' so that it can continue
+        -> the terms which will appear only once should be written once
+
+
+---> File IO:
+    - # file.seek(0) 
+        -> after writing this will shift the pointer to start of the file so that we can read it after writing and then reading using 'w+' mode
+        -> ex. # open in w+ mode (truncate + read + write)
+        
+        "file = open("Text.txt", 'w+')
+
+        # Step 1: Write something
+        file.write("Hello Ashwin, this file is written using w+ mode.\n")
+        file.write("Second line added.\n")
+
+        # Step 2: Move pointer to the beginning before reading
+        file.seek(0)
+
+        # Step 3: Read the updated content
+        print(file.read())
+
+        file.close()"
+    
+    - # # f.seek(6,0) # (offset-howmanybytestomove,fromwheretostart)
+    
+    - # file.tell() will give at which character our printing pointer is
+
+    - 
+
