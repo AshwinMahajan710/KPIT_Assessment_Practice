@@ -5,7 +5,7 @@ from Vehicle_Types import VehicleType
 class Vehicle():
 
     # constructor
-    def __init__(self, vehicle_id: int, make: str, model: str, price: float, vehicle_type: VehicleType, fuel_type: str, transmission_type: str, mileage: [int,float]):
+    def __init__(self, vehicle_id: int, make: str, model: str, price: float, vehicle_type: VehicleType, fuel_type: str, transmission_type: str, mileage: int | float):
 
         # Handling exceptions
         if not isinstance(vehicle_id, int):
@@ -14,7 +14,7 @@ class Vehicle():
             raise InvalidDatatypeException(f"For make: Expected string, got {type(make)}")
         if not isinstance(model, str):
             raise InvalidDatatypeException(f"For model: Expected string, got {type(model)}")
-        if not isinstance(price, [int,float]):
+        if not isinstance(price, (int,float)):
             raise InvalidDatatypeException(f"For Price: Expected int or float, got {type(price)}")
         if not isinstance(vehicle_type, VehicleType):
             raise InvalidDatatypeException(f"For Vehicle_type: Expected 'VehicleType', got {type(vehicle_type)}")

@@ -2,3 +2,6 @@
 
 2. type = BatteryType[LI_ION] --> to assign by 'Name' in enum class.   
    type = BatteryType(LI_ION) --> to assign by 'Value' in enum class.   
+
+3. For multiple types in isinstance() always use tuple --> (int, float) and not list [int , float]. And as a type hint while accepting values in functions, use this --> int | float 
+

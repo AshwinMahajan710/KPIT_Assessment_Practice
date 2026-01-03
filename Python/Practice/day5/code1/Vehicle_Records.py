@@ -13,7 +13,7 @@ class VehicleRecords():
 
     # static variable to maintain id:
     vehicle_id = 0
-    
+
     # a) create empy dictionary with vehicle_id and vehicle_object
     def __init__(self):
         self.vehicles: Dict[int, Vehicle] = {}
@@ -21,7 +21,8 @@ class VehicleRecords():
         self.transmission_types: List = ['Automatic', 'Manual']
     
     # b) adding new vehicle object
-    def add_vehicle(self, vehicle_type: VehicleType, make: str, model: str, fuel_type: str, transmission_type: str, mileage=0)
+    def add_vehicle(self, vehicle_type: VehicleType, make: str, model: str, fuel_type: str, transmission_type: str, mileage: float):
+        
 # Purpose: Adds a new vehicle to the system.
 # Steps:
 # Validate vehicle_type is an instance of VehicleType.
