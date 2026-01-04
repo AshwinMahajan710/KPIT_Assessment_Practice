@@ -42,4 +42,4 @@ class Vehicle():
 
     # To print information of obj
     def __repr__(self):
-        return self.__dict__        
+        return f"Vehicle({self.__dict__})"        

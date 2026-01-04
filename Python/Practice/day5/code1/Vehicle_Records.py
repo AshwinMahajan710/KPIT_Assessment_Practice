@@ -8,6 +8,7 @@
 from typing import Dict, List, Any
 from Vehicle_Types import VehicleType
 from Vehicle import Vehicle
+from Exceptions import InvalidArgumentException
 
 class VehicleRecords():
 
@@ -21,21 +22,54 @@ class VehicleRecords():
         self.transmission_types: List = ['Automatic', 'Manual']
     
     # b) adding new vehicle object
-    def add_vehicle(self, vehicle_type: VehicleType, make: str, model: str, fuel_type: str, transmission_type: str, mileage: float):
-        
-# Purpose: Adds a new vehicle to the system.
-# Steps:
-# Validate vehicle_type is an instance of VehicleType.
-# Generate a unique vehicle_id based on current count.
-# Store vehicle details in self.vehicles dictionary.
-# Key Features: Initializes maintenance_records as an empty list for future service logs.
-# c) remove_vehicle(self, vehicle_id)
-# Purpose: Deletes a vehicle record by its ID.
-# Behavior: Prints confirmation if removed, else shows "not found".
-# d) update_vehicle(self, vehicle_id, make=None, model=None, year=None, fuel_type=None, transmission_type=None, mileage=None)
-# Purpose: Updates specific details of a vehicle.
-# Logic: Checks if vehicle_id exists, then updates only provided fields (partial update supported).
-# e) get_vehicle_info(self, vehicle_id)
+    def add_vehicle(self, vehicle_type: VehicleType, make: str, model: str,price: float | int, fuel_type: str, transmission_type: str, mileage: float) -> None:
+        VehicleRecords.vehicle_id = VehicleRecords.vehicle_id + 1
+        if fuel_type not in self.fuel_types or transmission_type not in self.transmission_types:
+            InvalidArgumentException("Invalid fuel type or transmission type given as argument")
+        newVehicle:Vehicle = Vehicle(VehicleRecords.vehicle_id, make, model, price, vehicle_type, fuel_type, transmission_type, mileage)
+        self.vehicles[VehicleRecords.vehicle_id] = newVehicle
+        print("New Vehicle added successfully")
+    
+
+    # c) remove_vehicle(self, vehicle_id)
+    def remove_vehicle(self, vehicle_id: int) -> None:
+        if vehicle_id not in self.vehicles.keys():
+            print("Not found")
+            return
+        else:
+            del self.vehicles[vehicle_id]
+            print("Object deleted successfully")
+    
+    # d) update_vehicle(self, vehicle_id, make=None, model=None, year=None, fuel_type=None, transmission_type=None, mileage=None)   
+    def update_vehicle(self, vehicle_id, make=None, model=None, fuel_type=None, transmission_type=None, mileage=None):
+        if vehicle_id not in self.vehicles.keys():
+            print("Not found")
+            return
+        else:
+            if make is not None:
+                self.vehicles[vehicle_id][make]= make
+            if model is not None:
+                self.vehicles[vehicle_id][model] = model
+            if fuel_type is not None:
+                if fuel_type not in self.fuel_types:
+                    InvalidArgumentException("Invalid fuel type given as argument")
+                self.vehicles[vehicle_id][fuel_type] =fuel_type
+            if transmission_type is not None:
+                if transmission_type not in self.transmission_types:
+                    InvalidArgumentException("Invalid transmission type given as argument")
+                self.vehicles[vehicle_id][fuel_type] =fuel_type
+            if mileage is not None:
+                self.vehicles[vehicle_id][mileage] = mileage
+            print("Updated details sucessfully")
+
+    # e) get_vehicle_info(self, vehicle_id)
+    def get_vehicle_info(self, vehicle_id) -> None:
+        if vehicle_id not in self.vehicles.keys():
+            print("Not found")
+            return
+        else:
+            print("Object fund given are the details: ", self.vehicles[vehicle_id])
+            
 # Purpose: Retrieves details of a specific vehicle.
 # Returns: Dictionary of vehicle info or None if not found.
 # f) drive_vehicle(self, vehicle_id, miles)
