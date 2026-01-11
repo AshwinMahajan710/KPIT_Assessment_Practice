@@ -1,0 +1,4 @@
+1 -> to use 'size_t' use #include<cstddef> 
+
+2 -> It worked "obj.addEvent(SensorEvent(101,"Temperature",1020))" even if i was accepting it by reference
+

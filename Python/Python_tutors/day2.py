@@ -35,6 +35,9 @@ def changePerson():
     def changePart2():
         nonlocal cotactPesron
         cotactPesron = "Dnuanesj"
+    print(cotactPesron)
+    changePart2()
+changePerson()
 print(cotactPesron)
 
 # // args and kwars
@@ -69,4 +72,3 @@ def get_all_vehicle():
 
 def filter_vehicle(make):
     return [v for v in vehicles if v['make'] == make]
-

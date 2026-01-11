@@ -1,0 +1,1 @@
+Q4: How to send this using getter in external function :- std::vector<std::unique_ptr<Sensor>> sensors;

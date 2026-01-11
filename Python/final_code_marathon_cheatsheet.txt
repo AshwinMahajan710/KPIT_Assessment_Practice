@@ -1,0 +1,24 @@
+- - - - - - - - - - - - - - -  Taking inputs from usr - - - - - - - - - - - - - - - -
+
+1. for multistring input in single one --> input("Enter elements of 1 with a space in between: ").split(" ")
+2. To take input from file -> comman command -> python3 ./app.py < data1.txt
+3. if want to convert in float or int, use this 'list2 = list(map(lambda x: float(x),list1))' 
+4. for taking input in form of dictionary:
+    - Initialize empty list
+    - take no of keys as input
+    - for each key, get input in form of string of multiple characters(if desired is key: List[float/int/str]) else take only one string and after conversion in string assign the no.
+    - ex.
+        """    
+            n = int(input("Enter no of keys: "))
+            dict1 = {}
+
+            keys = input("Enter the keys: ").split(" ")
+
+            for i in range(n):
+                lst = input("Enter digits in form of space seperated strings: ").split(" ")
+                lst = list(map(lambda x: float(x),lst))
+                dict1[keys[i]] = lst 
+
+            print(dict1) 
+        """
+    

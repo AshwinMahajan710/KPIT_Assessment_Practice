@@ -10,7 +10,7 @@
 # df = pd.DataFrame(data)
 
 # # Head: returns the first 5 rows of the DataFrame
-# print("Head:")
+# print("Head:")    
 # print(df.head())
 
 # # Tail: returns the last 5 rows of the DataFrame
