@@ -8,7 +8,7 @@ class Controller{
         std::string m_name;
     
     public:    
-        explicit Controller(std::string name);
+        explicit Controller(const std::string& name);
         virtual ~Controller() = default;
         virtual void execute() const = 0;
         std::string getName() const;
