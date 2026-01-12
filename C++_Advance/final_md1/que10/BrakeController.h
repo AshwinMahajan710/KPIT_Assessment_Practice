@@ -11,13 +11,12 @@ class BrakeController final: public Controller{
     public:
         BrakeController() = default;
         BrakeController(const std::string& name, int pressure);
-        BrakeController(const BrakeController&) = delete; 
 
         ~BrakeController() = default;
 
-        void executeCommand() const override;
+        void execute() const override;
 
-        void displayStatus() const override;
+        void applyPressure(int extraPressure); // Updates pressure
 };
 
 

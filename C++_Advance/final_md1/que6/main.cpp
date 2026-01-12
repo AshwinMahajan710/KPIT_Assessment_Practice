@@ -25,8 +25,8 @@ int main(){
     SharedLogger logs;
 
     // adding log to shared log
-    auto sharedDataLog = std::make_shared<Datalog>(log);
-    logs.addLog(sharedDataLog);
+    auto sharedDataLog = std::make_shared<Datalog>(log); // 1
+    logs.addLog(sharedDataLog); // 2
 
     // displaying all logs
     logs.displayAll();
